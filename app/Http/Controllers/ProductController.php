@@ -34,10 +34,12 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
+        // dd($request->image);
         $order= new Product(
             ['name' => $request->name,
              'price' => $request->price ,
-            'amount'=>$request->amount
+            'amount'=>$request->amount,
+            'image'=>$request->image
         ]);
         $order->save();
         return redirect()->back();
@@ -73,6 +75,7 @@ class ProductController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
+
     public function update(Request $request, $id)
     {
         $product= Product::find($id);
@@ -92,6 +95,7 @@ class ProductController extends Controller
      */
     public function destroy($id)
     {
+
        $product = Product::find($id);
        $product->delete();
        $product=Product::get();

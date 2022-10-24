@@ -9,7 +9,8 @@
 </head>
 
 <body>
-    <form action="{{ route('product.store')}}" method="post">
+    <form action="{{ route('product.store')}}" method="POST">
+        @csrf
         Name:
         <input type="text" name="name">
         Price:

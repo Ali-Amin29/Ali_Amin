@@ -1,5 +1,6 @@
 <?php
 use App\Models\Product;
+use App\Http\Controllers\ProductController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,13 +14,5 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/product/create', function () {
-    return view('product.create');
-});
 
-Route::get('/product',[App\http\Controllers\ProductController::class,'create'])->name(' product.create');
-Route::get('/product',[App\http\Controllers\ProductController::class,'index'])->name(' product');
-Route::get('/product/{id}',[App\http\Controllers\ProductController::class,'destroy'])->name(' product.destroy');
-Route::get('/product/{id}',[App\http\Controllers\ProductController::class,'edit'])->name(' product.edit');
-Route::get('/product/{id}',[App\http\Controllers\ProductController::class,'update'])->name(' product.update');
 Route::resource('/product','App\http\Controllers\ProductController');
